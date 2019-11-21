@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+jobs:
+- job: Test01
+  timeoutinminutes: 10
+  pool:
+    vmImage: '16.04'
+
+- task: AzureFileCopy@2
+  displayName: 'AzureBlob File Copy'
+  inputs:
+    SourcePath: '$(System.DefaultWorkingDirectory)/_Test01-BT-JHA/Test01.txt'
+    azureSubscription: 'Visual Studio Enterprise – MPN (29459302-a8b6-4acc-ac39-5a273d277247)'
+    Destination: AzureBlob
+    storage: bt01
+    ContainerName: archive
+    BlobPrefix: Output
+
