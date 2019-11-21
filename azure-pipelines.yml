@@ -8,13 +8,13 @@ trigger:
 
 jobs:
 - job: Test01
-  timeoutinminutes: 10
+  timeoutInMinutes: 10
   pool:
     vmImage: '16.04'
 
-- task: AzureFileCopy@2
-  displayName: 'AzureBlob File Copy'
-  inputs:
+    task: AzureFileCopy@2
+    displayName: 'AzureBlob File Copy'
+    inputs:
     SourcePath: '$(System.DefaultWorkingDirectory)/_Test01-BT-JHA/Test01.txt'
     azureSubscription: 'Visual Studio Enterprise – MPN (29459302-a8b6-4acc-ac39-5a273d277247)'
     Destination: AzureBlob
