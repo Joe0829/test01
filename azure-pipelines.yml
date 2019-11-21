@@ -10,7 +10,7 @@ jobs:
 - job: Test01
   timeoutInMinutes: 10
   pool:
-    vmImage: '16.04'
+    vmImage: 'ubuntu 16.04'
 
     task: AzureFileCopy@2
     displayName: 'AzureBlob File Copy'
